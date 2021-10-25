@@ -6,10 +6,13 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js"
   },
   "private": true,
   "dependencies": {
+    "@angular-architects/module-federation": "^12.5.3",
+    "@angular-architects/module-federation-tools": "^12.5.3",
     "@angular/animations": "~12.1.2",
     "@angular/cdk": "^12.2.11",
     "@angular/common": "~12.1.2",
