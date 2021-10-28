@@ -3,7 +3,7 @@
     <div *ngFor="let item of items" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="box">
             {{item.remoteName}}
-            <mft-wc-wrapper [options]="item"></mft-wc-wrapper>
+            <mft-wc-wrapper [options]="item" [events]="events"></mft-wc-wrapper>
         </div>
     </div>
 </div>

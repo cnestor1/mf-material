@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
+import { shareNgZone } from '@angular-architects/module-federation-tools';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular12-example';
+  
+  constructor(private ngZone: NgZone) {
+    shareNgZone(ngZone);
+  }
 }
