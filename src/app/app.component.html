@@ -1,5 +1,23 @@
-<mat-tab-group mat-align-tabs="start">
+<!-- <mat-tab-group mat-align-tabs="start" (selectedTabChange)="tabChanged($event)">
   <mat-tab label="First"><app-tab1></app-tab1></mat-tab>
   <mat-tab label="Second"><app-tab2></app-tab2></mat-tab>
   <mat-tab label="Third">Content 3</mat-tab>
+</mat-tab-group> -->
+
+<mat-tab-group mat-align-tabs="start" (selectedTabChange)="tabChanged($event)">
+  <mat-tab *ngFor="let tab of tabs">
+    <ng-template mat-tab-label>
+      {{tab.label}}
+    </ng-template>
+  </mat-tab>
 </mat-tab-group>
+
+
+<div *ngFor="let tab of tabs" [ngStyle]="{'display':!tab.active ? 'none' : null}">
+  <div *ngIf="tab.component; else displayStaticContent">
+    <ng-container *ngComponentOutlet="tab.component"></ng-container>
+  </div>
+  <ng-template #displayStaticContent>
+    {{tab.content}}
+  </ng-template>
+</div>
